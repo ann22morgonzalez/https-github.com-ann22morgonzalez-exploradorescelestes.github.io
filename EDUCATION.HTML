@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .titulo {
+            background-image: url("DISEO DE PRESENTACION.png"); /* imagen de fondo */
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+        }
+        .titulo h1 {
+            font-size: 48px;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        .contenido {
+            padding: 20px;
+        }
+        .contenido h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .contenido p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+    <head>
+  <title>Create your Exoplanet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      background-color: white;
+    }
+
+    #titulo {
+      text-align: center;
+      font-size: 36px;
+      margin-bottom: 20px; color: violet;
+    }
+
+    #lienzo {
+      border: 1px solid #000000;
+      width: 100%;
+      height: 600px;
+    }
+
+    #herramientas {
+      text-align: center;
+    }
+
+    button {
+      margin: 5px;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      background-color: purple;
+      color: #ffffff;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #3e8e41;
+    }
+
+    #color-input {
+      margin: 5px;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      background-color: #4CAF50;
+      color: #ffffff;
+      cursor: pointer;
+    }
+
+    #imagenes {
+      margin-top: 20px;
+    }
+
+    @media (max-width: 768px) {
+      #lienzo {
+        height: 400px;
+      }
+    }
+        <head>
+  <title>Planeta Quest</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      background-color: #f2f2f2;
+    }
+
+    #titulo {
+      text-align: center;
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+
+
+    #pregunta {
+      text-align: center;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    #respuesta {
+      width: 50%;
+      height: 30px;
+      font-size: 18px;
+      padding: 10px;
+      border: 1px solid #ccc;
+    }
+
+    #enviar {
+      margin-top: 10px;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      background-color: purple;
+      color: white;
+      cursor: pointer;
+    }
+
+    #enviar:hover {
+      background-color: #3e8e41;
+    }
+
+    #resultado {
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+    }
+body {
+	background-color: #f0f0f0;
+}
+
+#game-container {
+	width: 80%;
+	margin: 40px auto;
+	padding: 20px;
+	border: 1px solid #ccc;
+	border-radius: 10px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#question-container {
+	margin-bottom: 20px;
+}
+
+#question {
+	font-size: 24px;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+
+#options {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+#options li {
+	margin-bottom: 10px;
+}
+
+#options button {
+	width: 100%;
+	padding: 10px;
+	border: none;
+	border-radius: 10px;
+	background-color: rgb(53, 1, 53);
+}
+footer {
+  background-color: rgb(223, 95, 223); /* Change this to your desired background color */
+  padding: 10px;
+  text-align: center;
+  clear: both;
+}
+    </style>
+</head>
+<body>
+    <div class="titulo">
+        <h1>Education</h1>
+    </div>
+    <div class="contenido">
+        
+        <p>Welcome to the educational place, where you will test your creativity and your knowledge about Exoplanets.</p>
+           </div>
+    
+        <body>
+  <h1 id="titulo">Create your Exoplanet</h1>
+  <div id="herramientas">
+    <button id="lapiz">pencil</button>
+    <button id="borrador">draft</button>
+    <button id="color">Color</button>
+    <input type="color" id="color-input" value=purple>
+    <button id="guardar">keep</button>
+  </div>
+  <canvas id="lienzo"></canvas>
+  <div id="imagenes"></div>
+  <script>
+    const lienzo = document.getElementById('lienzo');
+    const ctx = lienzo.getContext('2d');
+    const lapiz = document.getElementById('lapiz');
+    const borrador = document.getElementById('borrador');
+    const color = document.getElementById('color');
+    const colorInput = document.getElementById('color-input');
+    const guardar = document.getElementById('guardar');
+    const imagenes = document.getElementById('imagenes');
+
+    lienzo.width = window.innerWidth;
+    lienzo.height = window.innerHeight - 200;
+
+    let dibujando = false;
+    let x = 0;
+    let y = 0;
+    let colorActual = '#000000';
+
+    lapiz.addEventListener('click', () => {
+      dibujando = true;
+    });
+
+    borrador.addEventListener('click', () => {
+      dibujando = false;
+      ctx.clearRect(0, 0, lienzo.width, lienzo.height);
+    });
+
+    color.addEventListener('click', () => {
+      colorActual = colorInput.value;
+    });
+
+    lienzo.addEventListener('mousedown', (e) => {
+      x = e.offsetX;
+      y = e.offsetY;
+      if (dibujando) {
+        ctx.beginPath();
+        ctx.moveTo(x, y);
+        ctx.lineTo(x, y);
+        ctx.strokeStyle = colorActual;
+        ctx.lineWidth = 5;
+        ctx.stroke();
+      }
+    });
+
+    lienzo.addEventListener('mousemove', (e) => {
+      if (dibujando) {
+        x = e.offsetX;
+        y = e.offsetY;
+        ctx.lineTo(x, y);
+        ctx.strokeStyle = colorActual;
+        ctx.lineWidth = 5;
+        ctx.stroke();
+      }
+    });
+
+    guardar.addEventListener('click', () => {
+      const imagen = lienzo.toDataURL();
+      const img = document.createElement('img');
+      img.src = imagen;
+      img.width = 200;
+      img.height = 200;
+      imagenes.appendChild(img);
+    });
+  </script>
+            <body>
+  <h1 id="titulo">Planeta Quest</h1>
+  <div id="personaje"></div>
+  <div id="estacion-espacial"></div>
+  <div id="pregunta"></div>
+  <input id="respuesta" type="text">
+  <button id="enviar">Enviar</button>
+  <div id="resultado"></div>
+  <script>
+  const personaje = document.getElementById('personaje');
+const estacionEspacial = document.getElementById('estacion-espacial');
+const pregunta = document.getElementById('pregunta');
+const respuesta = document.getElementById('respuesta');
+const enviar = document.getElementById('enviar');
+const resultado = document.getElementById('resultado');
+
+const preguntas = [
+  {
+    pregunta: '¿What is the largest planet in the solar system?',
+    respuestaCorrecta: 'Jupiter'
+  },
+  {
+    pregunta: '¿What is the closest planet to the Sun?',
+    respuestaCorrecta: 'Mercury'
+  },
+  {
+    pregunta: '¿What is the furthest planet from the Sun?',
+    respuestaCorrecta: 'Neptune'
+  }
+];
+
+let nivelActual = 0;
+let vidas = 3;
+
+enviar.addEventListener('click', () => {
+  const respuestaUsuario = respuesta.value.trim();
+  if (respuestaUsuario.toLowerCase() === preguntas[nivelActual].respuestaCorrecta.toLowerCase()) {
+    resultado.textContent = '¡Correcto!';
+    nivelActual++;
+    if (nivelActual >= preguntas.length) {
+      resultado.textContent = '¡Felicidades! Has completado el juego.';
+      enviar.disabled = true;
+    } else {
+      pregunta.textContent = preguntas[nivelActual].pregunta;
+      respuesta.value = '';
+    }
+  } else {
+    resultado.textContent = '¡Incorrecto!';
+    vidas--;
+    if (vidas === 0) {
+      resultado.textContent = '¡Game Over! Has perdido todas tus vidas.';
+      enviar.disabled = true;
+    } else {
+      respuesta.value = '';
+    }
+  }
+});
+
+pregunta.textContent = preguntas[nivelActual].pregunta;
+  </script>
+    <head>
+	<title>Exoplanet Quest</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<h1>Exoplanet Quest</h1>
+	<div id="game-container">
+		<div id="question-container">
+			<h2 id="question"></h2>
+			<ul id="options">
+				<li><button id="option1"></button></li>
+				<li><button id="option2"></button></li>
+				<li><button id="option3"></button></li>
+				<li><button id="option4"></button></li>
+			</ul>
+		</div>
+		<div id="score-container">
+			<p id="score">Score: 0</p>
+		</div>
+	</div>
+	
+	<script>
+		let questions = [
+			{
+				question: "What is an exoplanet?",
+				options: ["A planet that orbits around the Sun", "A planet that orbits around a star outside of our solar system", "A moon that orbits around a planet", "A comet that orbits around the Sun"],
+				answer: 1
+			},
+			{
+				question: "How many exoplanets have been discovered so far?",
+				options: ["Over 1,000", "Over 4,000", "Over 10,000", "Over 20,000"],
+				answer: 1
+			},
+			{
+				question: "What type of stars can have exoplanets?",
+				options: ["Only stars of type G", "Stars of type G, K, and M", "Only stars of type K", "Only stars of type M"],
+				answer: 1
+			},
+			{
+				question: "What is the most common method for detecting exoplanets?",
+				options: ["Transit method", "Radial velocity method", "Direct imaging method", "Gravitational lensing method"],
+				answer: 0
+			},
+			{
+				question: "What is the main objective of the Cheops mission?",
+				options: ["To study the shape and size of exoplanets", "To search for extraterrestrial life", "To study the atmospheres of exoplanets", "To detect exoplanets using the transit method"],
+				answer: 0
+			}
+		];
+		
+		let currentQuestion = 0;
+		let score = 0;
+		
+		document.getElementById("question").innerHTML = questions[currentQuestion].question;
+		
+		for (let i = 0; i < 4; i++) {
+			document.getElementById("option" + (i + 1)).innerHTML = questions[currentQuestion].options[i];
+		}
+		
+		document.getElementById("options").addEventListener("click", function(event) {
+			if (event.target.tagName === "BUTTON") {
+				let answer = parseInt(event.target.id.replace("option", ""));
+				if (answer === questions[currentQuestion].answer) {
+					score++;
+					document.getElementById("score").innerHTML = "Score: " + score;
+				}
+				currentQuestion++;
+				if (currentQuestion < questions.length) {
+					document.getElementById("question").innerHTML = questions[currentQuestion].question;
+					for (let i = 0; i < 4; i++) {
+						document.getElementById("option" + (i + 1)).innerHTML = questions[currentQuestion].options[i];
+					}
+				} else {
+					document.getElementById("game-container").innerHTML = "<h1>Congratulations! You've completed the Exoplanet Quest!</h1><p>Your final score is " + score + " out of " + questions.length + ".</p>";
+				}
+			}
+		});
+	</script>
+  <footer>
+    <h1>Contact</h1>
+            <p> 
+              he team's email addresses are: Jesús Abraham Zazueta Castillo: abrahamzazuetac@gmail.com Iveth Giselle Ortega Hernández: neptuneuranus78@gmail.com,betarichita@gmail.com Anelis Duarte Chávez: neptuno561@gmail.com Naomi Contreras: naomi Contreras@acontreras.com. Morales González: morgonzalezann@gmail.com América del Rivero: angeldelribero@gmail.com</p>
+             <p>Team: Celestial Explorers. Project emails:
+             </p> 
+             <p>cronicasdelaexploraciondeexopl@gmail.com</p>
+              <p>chroniclesofexoplanetsexplorat@gmail.com</p> 
+             <p>NASA space apps challenge</p>
+             <P> Source: Nasa.gov</P>
+</body>
+</body>
+</body>
+    </body>
+</html>

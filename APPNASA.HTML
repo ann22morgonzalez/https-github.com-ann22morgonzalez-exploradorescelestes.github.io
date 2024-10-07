@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>App NASA Oficial</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color:black; color:white
+        }
+        
+                .titulo {
+            background-image: url("IDEA2.png"); /* imagen de fondo */
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+  
+        .nav {
+            background-color: white; /* Azul */
+            padding: 20px;
+            text-align: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 150%;
+        }
+  
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        nav ul li {
+            position: relative;
+            margin-right: 20px;
+        }
+        
+        nav ul li a {
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            color: #fff;
+        }
+        
+        nav ul li ul {
+            display: none;
+            position: absolute;
+            top: 10%;
+            left: 0;
+            background-color: white;
+            padding: 10px;
+            border: 1px solid #ddd;
+            transition: opacity 0.5s ease-in-out;
+            opacity: 0;
+        }
+        
+        nav ul li:hover ul {
+            display: block;
+            opacity: 1;
+        }
+        
+        nav ul li ul li {
+            margin-bottom: 20px;
+        }
+        
+        nav ul li ul li a {
+            color: #666;
+        }
+        
+        nav ul li ul li a:hover {
+            color: #333;
+        }
+        
+        .azul {
+            background-color:  rgb(146, 89, 146); /* Azul */
+            padding: 30px;
+            border-radius: 5px;
+        }
+        
+        .verde {
+            background-color:#2D0140; /* Verde */
+            padding: 30px;
+            border-radius: 5px;
+        }
+        
+        .rojo {
+            background-color:#660273; /* Rojo */
+            padding: 30px;
+            border-radius: 5px;
+        }
+        
+        .naranja {
+            background-color:#A305A6; /* Naranja */
+            padding: 30px;
+            border-radius: 5px;
+        }
+   
+        
+  .dropbtn {
+      background-color: purple; /* Example color */
+      color: white;
+      padding: 16px;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+    }
+
+    /* Dropdown content (hidden by default) */
+    .dropdown-content {
+      display: none;
+      position:center;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+
+    /* Links inside the dropdown */
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    /* Change color of dropdown links on hover */
+    .dropdown-content a:hover {background-color: white}
+
+    /* Imagenes en el menú */
+    .menu-imagen {
+      width: 20px;
+      height: 20px;
+      margin-right: 0px;
+    }
+  .contenido h1 {
+            font-size: 48px;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+    .contenido h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        
+        }
+    
+    .contenido h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+    .menu-circular {
+    position: fixed; /* Posicionar la barra en la parte superior */
+    top: 0;
+    left: 0;
+    width: 100%; /* Ancho del menú */
+    height: 50px; /* Alto del menú */
+    border-radius: 0; /* No forma circular */
+    background-color:rgba(231, 222, 230, 0); /* Color de fondo */
+    display: flex;
+    justify-content:center;
+    align-items:center;
+  }
+
+  /* Estilos para la imagen del menú */
+  .imagen-menu {
+    width: 50px; /* Ancho de la imagen */
+    height: 50px; /* Alto de la imagen */
+    border-radius: 50%; /* Forma circular */
+    object-fit: cover; /* Ajustar la imagen al contenedor */
+    margin-right: 20px; /* Espacio entre la imagen y el enlace */
+  }
+
+  /* Estilos para los enlaces del menú */
+  .enlace-menu {
+    font-size: 16px; /* Tamaño del texto */
+    text-align: center;
+    line-height: 40px; /* Alinear el texto verticalmente */
+    cursor: pointer; /* Cursor en forma de mano */
+    margin-right: 10px; /* Espacio entre los enlaces */
+  }
+     .contenido {
+            padding: 20px;
+        }
+        .contenido h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .contenido p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+    .menu-circular {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+  }
+
+  /* Estilos para las imágenes del menú */
+  .imagen-menu {
+    width: 40px; /* Ancho de la imagen */
+    height: 40px; /* Alto de la imagen */
+    border-radius: 100%; /* Forma circular */
+    object-fit: cover; /* Ajustar la imagen al contenedor */
+    margin-right: 10px; /* Espacio entre las imágenes */
+    cursor: pointer; /* Cursor en forma de mano */
+  }
+
+  /* Estilos para el texto debajo de las imágenes */
+  .menu-circular span {
+    font-size: 14px; /* Tamaño del texto */
+    text-align: center; /* Alinear el texto */
+    margin-top: 5px; /* Espacio entre la imagen y el texto */
+  }
+    .cuadro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+  border: 0px solid violet;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(152, 62, 170, 0.795);
+}
+
+.imagen {
+  width: 200px;
+  height: 200px;
+  margin-right: 20px;
+  border-radius: 0px;
+}
+
+.texto {
+  flex: 1;
+  padding: 20px;
+}
+
+.texto h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.texto p {
+  font-size: 18px;
+  color: #666666;
+}
+footer {
+  background-color: purple; /* Change this to your desired background color */
+  padding: 10px;
+  text-align: center;
+  clear: both;
+}
+</style>
+
+<script>
+  // Obtener los enlaces del menú
+  const enlaces = document.querySelectorAll('.enlace-menu');
+
+  // Agregar evento de clic a cada enlace
+  enlaces.forEach((enlace) => {
+    enlace.addEventListener('click', () => {
+      // Redireccionar a la página correspondiente
+      window.location.href = enlace.getAttribute('href');
+    });
+  });
+</script>
+  
+    </style>
+</head>
+<body>
+    <div class="fondo-espacio">
+        <h1 class="titulo">CHRONICLES OF EXOPLANET EXPLORATION</h1>
+    
+      
+          </body>
+    </div>
+<p>Embark on an exciting adventure beyond our Solar System with our innovative "Chronicles of Exoplanet Exploration" application. This educational resource will immerse you in the fascinating world of exoplanets, those mysterious worlds that orbit distant stars.
+
+    With detailed information about discovered exoplanets, the app offers a unique learning experience. Paint your own exoplanet! Participate in interactive quizzes that transform knowledge into fun, making each discovery accessible and engaging.
+    
+    Designed for all astronomy enthusiasts, our app especially focuses on high school students and older, inspiring the next generation of cosmo explorers. Join the adventure and explore the universe like never before!</p>
+
+<style> text-align: center </style>
+   
+           
+     
+            <div class="information">
+            
+  <!-- Imágenes del menú -->
+  
+     
+  <h2 style="color: purple ; text-align: center; font-family: 'Roboto', sans-serif; margin-bottom: 5px;">Types Exoplanet  </h2>
+  
+  
+    
+     <img src="Gigante.png" alt="Imagen 4" class="imagen">
+     <span>Gas Giants</span>
+   
+  
+    
+
+    <img src="NEPTUNIANO.png" alt="Imagen 2" class="imagen">
+    <span>Neptunians</span>
+  
+   
+    <img src="SUPER-TIERRA.png" alt="Imagen 4" class="imagen" >
+    <span>Super Earth</span>
+  </a>
+
+   
+    <img src="TERRESTRES.png" alt="Imagen 3" class="imagen">
+    <span>Terrestrial</span>
+
+  <h2 style="color: violet; text-align: center; font-family: 'Roboto', sans-serif; margin-bottom: 5px;">Exoplanets famous </h2>
+  <P>The study of exoplanets helps understand planet formation, explore possible habitable environments, and advance the search for life beyond Earth.</P>
+            <P>The first confirmed discovery was in 1992, with the detection of planets orbiting a pulsar, PSR B1257+12. In 1995, the first exoplanet around a Sun-like star, 51 Pegasi b, was confirmed.
+            </P>
+      <div class="cuadro">      
+  <img src="b.png" alt="imagen" class="imagen">
+  <div class="texto">
+    <h2>51 Pegasi b</h2>
+    <p>51 Pegasi b was the first exoplanet ever discovered orbiting a star that resembles our Sun. Also the first Hot Jupiter ever observed, this gas giant located 50 light-years from Earth takes only 4.2 days to orbit its star.
+
+51 Pegasi b's discovery in 1995 by Swiss astronomers Michel Mayor and Didier Queloz surprised the scientific community since models of planetary formation at the time did not predict its existence. The pair later won the Nobel Prize in Physics in 2019 for their achievement.</p>
+  </div>
+</div>
+<div class="cuadro">
+  <img src="NEP.png" alt="Imagen" class="imagen">
+  <div class="texto">
+    <h2>Kepler-22b</h2>
+    <p>Roughly twice the size of Earth, Kepler-22b was discovered in 2011 by NASA's Kepler Space Telescope. The exoplanet was the first to be found in any star's habitable zone.
+
+Although scientists are unsure what Kepler-22b looks like, the exoplanet orbits its star at just the right distance – where a planet is most likely to have a climate that would allow any water on its surface to remain liquid.
+
+This area is also called the Goldilocks Zone, since the conditions are not too hot, not too cold, but just right. However, there are no guarantees that this exoplanet, located about 600 light-years away from Earth, hosts alien life, or that humans could live on it.</p>
+  </div>
+</div>
+<div class="cuadro">
+         
+         <img src="cen.png" alt="Imagen" class="imagen">
+         <div class="texto">
+           <h2>Proxima Centauri b</h2>
+           <p>Proxima Centauri is the closest star to the Sun. This red dwarf star is located 4.2 light-years – or 40 trillion kilometres – away from Earth. An exoplanet, Proxima Centauri b, was detected orbiting this star in 2016.
+
+Proxima Centauri b is a rocky planet that is a bit larger than Earth. Like Kepler-22b, it is also located in its star's habitable zone. Scientists find this exoplanet very intriguing, but they will have to continue studying it from afar – even using the fastest space probe ever built, the Parker Solar Probe which could travel at speeds of up to 724,000 km/h, it would take almost 7000 years to reach Proxima Centauri b!
+
+In 2020, scientists confirmed the existence of a second planet in this system: Proxima Centauri c. This super-Earth or mini-Neptune is about 7 times as massive as our planet, but orbits its star beyond the habitable zone.</p>
+         </div>
+       </div>
+       <div class="cuadro">
+         
+         <img src="tr.png" alt="Imagen" class="imagen">
+         <div class="texto">
+           <h2>The TRAPPIST-1 system</h2>
+           <p>The most studied planetary system, aside from our own solar system, lies about 40 light-years away. We've looked at the seven rocky exoplanets orbiting the TRAPPIST-1 star with ground and space telescopes like Spitzer, Kepler, Hubble, and, now, the James Webb Space Telescope.
+
+In March 2023, the first science from the Webb telescope was released. An analysis of TRAPPIST-1b, the innermost planet, revealed its dayside temperature and found little evidence of an atmosphere. </p>
+         </div>
+       </div>
+           <h2 style="color: violet; text-align: center; font-family: 'Roboto', sans-serif; margin-bottom: 5px;">Habitable zone</h2>
+   
+      <div class="cuadro">
+         
+  <img src="ZH.png" alt="Imagen" class="imagen">
+  <div class="texto">
+    
+    <p>The habitable zone or Goldilocks is the region around a star where temperatures allow the existence of liquid water on the surface. Not all planets in the habitable zone are necessarily suitable for life, as factors such as atmosphere and climate are also important.</p>
+  </div>
+</div>
+<h2 style="color: purple; text-align: center; font-family: 'Roboto', sans-serif; margin-bottom: 5px;">¿How Do We Find Exoplanets? </h2>
+  
+      <div class="cuadro">
+         
+  
+  <div class="texto">
+   
+    <p>The two main techniques are the transit and radial velocity methods.
+      </p>
+  </div>
+</div>
+<div style="background-color:black; display: flex; justify-content: center; align-items: center; padding: 1px;">
+  <div>
+    <h2 style="color: purple; text-align: center; font-family: 'Roboto', sans-serif; margin-bottom: 5px;">Gallery</h2>
+    <h1 style="color: white; text-align: center; font-family: 'Roboto', sans-serif; font-size: 3em; margin-bottom: 50px;">Exoplanet</h1>
+    <h2 style="color: purple; text-align: center; font-family: 'Roboto', sans-serif; margin-bottom: 5px;">¿What is an exoplanet?</h2>
+  
+  <p> An exoplanet is a planet orbiting a star outside our solar system. Unlike the planets in our system, exoplanets belong to other star systems and, in some cases, orbit multiple stars.</p>
+        
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;">
+      <img src="PortadaN.png" alt="NFT 1" style="width: 300px; height: 300px; border-radius: 10px;">
+      <img src="1img.png" alt="NFT 2" style="width: 300px; height: 300px; border-radius: 10px;">
+       <img src="2img.png" alt="NFT 4" style="width: 300px; height: 300px; border-radius: 10px;">
+      <img src="es1.png" alt="NFT 5" style="width: 300px; height: 300px; border-radius: 10px;">
+      <img src="es3.png" alt="NFT 6" style="width: 300px; height: 300px; border-radius: 10px;">
+      <img src="es.png" alt="NFT 7" style="width: 300px; height: 300px; border-radius: 10px;">
+      <img src="es4.png" alt="NFT 7" style="width: 300px; height: 300px; border-radius: 10px;">
+    </div>
+
+ 
+    
+          <h2 style="color: purple; text-align: center; font-family: 'Roboto', sans-serif; margin-bottom: 5px;">Explore at NASA</h2>
+ <style> text-align: center </style>
+      <nav>
+        <ul>
+       
+            
+           
+                
+            
+             
+            <li class="naranja"><a href="https://science.nasa.gov/exoplanets/stars/">Stars in an Exoplanet World</a>
+            
+            </li>
+        <li class="verde"><a href="https://science.nasa.gov/exoplanets/exoplanet-catalog/">Exoplanet Catalog</a>
+
+                
+            </li>
+
+                  <li class="azul"><a href="https://eyes.nasa.gov/apps/exo/">Eyes on exoplanets</a>
+                
+
+      <li class="naranja"><a href="https://science.nasa.gov/exoplanets/facts/">Curiosities about Exoplanets</a>
+                
+            </li>
+          
+      
+        </ul> 
+    </nav>
+             
+            
+  <div class="menu-circular">
+  <!-- Imagen del menú -->
+  <img src="UNIVERSOS.png" alt="Menú" class="imagen-menu">
+  <!-- Enlaces a otras páginas -->
+ 
+ 
+  <a href="http://127.0.0.1:5500/UNIVERSO.HTML" class="enlace-menu">universe</a>
+  <img src="MANZA.png" alt="Menú" class="imagen-menu">
+ 
+  <a href="http://127.0.0.1:5500/EDUCATION.HTML" class="enlace-menu">Education </a>
+  
+  
+</div>
+            
+            
+         
+  <script>
+    function toggleMenu(button) {
+      var dropdownContent = button.nextElementSibling;
+      if (dropdownContent.style.display === "block") {
+        dropdownContent.style.display = "none";
+      } else {
+        dropdownContent.style.display = "block";
+      }
+    }
+  </script>
+             
+  <framer> </framer>  
+  
+    </style>
+    <footer>
+      <h1>Contact</h1>
+            <p> 
+              he team's email addresses are: Jesús Abraham Zazueta Castillo: abrahamzazuetac@gmail.com Iveth Giselle Ortega Hernández: neptuneuranus78@gmail.com,betarichita@gmail.com Anelis Duarte Chávez: neptuno561@gmail.com Naomi Contreras: naomi Contreras@acontreras.com. Morales González: morgonzalezann@gmail.com América del Rivero: angeldelribero@gmail.com</p>
+             <p>Team: Celestial Explorers. Project emails:
+             </p> 
+             <p>cronicasdelaexploraciondeexopl@gmail.com</p>
+              <p>chroniclesofexoplanetsexplorat@gmail.com</p> 
+             <p>NASA space apps challenge</p>
+             <P> Source: Nasa.gov</P>
+      
+    
